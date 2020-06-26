@@ -12,7 +12,8 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = event.message.text;
   //收到文字訊息時，直接把收到的訊息傳回去
-    if (msg == 'JJ') {replystr ='JJJJJJJ'}
+    replystr=msg.match('楊董')
+    if (replystr == '楊董') {replystr ='楊董是大帥哥'}
     else {replystr = 'Jerry say ====> '+msg}
     
     event.reply(replystr).then(function(data) {
