@@ -29,7 +29,7 @@ bot.on('message', function(event) {
     });
   }
 });
-
+/*
 function processText(myMsg){
    var myResult='';
    if (myMsg=='你好' || myMsg=='早安' || myMsg=='午安' || myMsg=='晚安')
@@ -40,7 +40,7 @@ function processText(myMsg){
       myResult='5號腳位';
    else if (myMsg=='再見')
       myResult='這麼快就要離開我了！';
-   /*
+   
    else if (myMsg=='led開' || myMsg=='LED開'){
       if (!deviceIsConnected())
          myResult='裝置未連接！';
@@ -72,7 +72,7 @@ function processText(myMsg){
          myResult='電燈已關閉！';
          relay.off();
       }
-   }*/
+   }
    else{
       myResult='';
       try{
@@ -85,7 +85,7 @@ function processText(myMsg){
    }
    return myResult;
 }
-
+*/
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
