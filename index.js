@@ -18,7 +18,7 @@ bot.on('message', function(event) {
   //收到文字訊息時，直接把收到的訊息傳回去
     replystr=msg.match('楊董')
     if (replystr == '楊董') {replystr ='楊董是大帥哥'}
-    else {replystr = 'Jerry say =>>>>777 '+msg}
+    else {replystr = 'Jerry say =>>>>888 '+msg}
     
     event.reply(replystr).then(function(data) {
       // 傳送訊息成功時，可在此寫程式碼 
@@ -29,9 +29,10 @@ bot.on('message', function(event) {
     });
   }
 });
-/*
+
 function processText(myMsg){
    var myResult='';
+   /*
    if (myMsg=='你好' || myMsg=='早安' || myMsg=='午安' || myMsg=='晚安')
       myResult=myMsg; 
    else if (myMsg=='我很帥')
@@ -83,9 +84,10 @@ function processText(myMsg){
       if (myResult=='')
          myResult='抱歉，我不懂這句話的意思！';
    }
+   */
    return myResult;
 }
-*/
+
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
