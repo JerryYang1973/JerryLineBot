@@ -89,7 +89,7 @@ function processText(myMsg){
       try{
          myResult='答案是'+math.eval(myMsg.toLowerCase()).toString();
       }catch(err){
-         myResult='';
+         myResult='??';
       }
       if (myResult=='')
          myResult='抱歉，我不懂這句話的意思！dd';
