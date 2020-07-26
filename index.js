@@ -14,10 +14,10 @@ var myBoard;
 
 bot.on('message', function(event) {
   var myReply='';
-  if (event.message.type = 'text') {
+  if (event.message.type == 'text') {
     myReply=processText(event.message.text);
    }
-   /*
+   
    if (event.message.type == 'sticker') {
       myReply='你太幽默了！';
    console.log('sticker');
@@ -25,7 +25,7 @@ bot.on('message', function(event) {
    if (event.message.type == 'image') {
       myReply='這照片好帥！';
    }
-   */
+   
     
     event.reply(myReply).then(function(data) {
       // 傳送訊息成功時，可在此寫程式碼 
@@ -89,7 +89,7 @@ function processText(myMsg){
       try{
          myResult='答案是'+math.eval(myMsg.toLowerCase()).toString();
       }catch(err){
-         myResult='??';
+         myResult='';
       }
       if (myResult=='')
          myResult='抱歉，我不懂這句話的意思！dd';
