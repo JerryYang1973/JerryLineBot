@@ -18,14 +18,14 @@ var myBoard;
    
 bot.on('message', function(event) {
    var myReply='';
-   if (event.message.type === 'text') {
+   if (event.message.type == 'text') {
       myReply=processText(event.message.text);
    }
-   if (event.message.type === 'sticker') {
+   if (event.message.type == 'sticker') {
       myReply='你太幽默了！';
    console.log('sticker');
    }
-   if (event.message.type === 'image') {
+   if (event.message.type == 'image') {
       myReply='這照片好帥！';
    }
    event.reply(myReply).then(function(data) {
@@ -39,15 +39,15 @@ bot.on('message', function(event) {
 
 function processText(myMsg){
    var myResult='';
-   if (myMsg==='你好' || myMsg==='早安' || myMsg==='午安' || myMsg==='晚安')
+   if (myMsg=='你好' || myMsg=='早安' || myMsg=='午安' || myMsg=='晚安')
       myResult=myMsg; 
-   else if (myMsg==='我很帥')
+   else if (myMsg=='我很帥')
       myResult='我也這麼覺得';
-   else if (myMsg==='繼電器')
+   else if (myMsg=='繼電器')
       myResult='5號腳位';
-   else if (myMsg==='再見')
+   else if (myMsg=='再見')
       myResult='這麼快就要離開我了！';
-   else if (myMsg==='led開' || myMsg==='LED開'){
+   else if (myMsg=='led開' || myMsg=='LED開'){
       if (!deviceIsConnected())
          myResult='裝置未連接！';
       else{
@@ -55,7 +55,7 @@ function processText(myMsg){
          rgbled.setColor('#FFFFFF');
       }
    }
-   else if (myMsg==='led關' || myMsg==='LED關'){
+   else if (myMsg=='led關' || myMsg=='LED關'){
       if (!deviceIsConnected())
          myResult='裝置未連接！';
       else{
@@ -63,7 +63,7 @@ function processText(myMsg){
          rgbled.setColor('#000000');
       }
    }
-   else if (myMsg==='電燈開'){
+   else if (myMsg=='電燈開'){
       if (!deviceIsConnected())
          myResult='裝置未連接！';
       else{
@@ -71,7 +71,7 @@ function processText(myMsg){
          relay.on();
       }
    }
-   else if (myMsg==='電燈關'){
+   else if (myMsg=='電燈關'){
       if (!deviceIsConnected())
          myResult='裝置未連接！';
       else{
@@ -86,7 +86,7 @@ function processText(myMsg){
       }catch(err){
          myResult='';
       }
-      if (myResult==='')
+      if (myResult=='')
          myResult='抱歉，我不懂這句話的意思！';
    }
    return myResult;
@@ -104,9 +104,9 @@ boardReady(myBoardVars, true, function (board) {
 
 //以下為檢查webduino是否已連線成功的函式
 function deviceIsConnected(){
-   if (myBoard===undefined)
+   if (myBoard==undefined)
       return false;
-   else if (myBoard.isConnected===undefined)
+   else if (myBoard.isConnected==undefined)
       return false;
    else
       return myBoard.isConnected;
