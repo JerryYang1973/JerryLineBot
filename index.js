@@ -14,9 +14,16 @@ var myBoard;
 
 bot.on('message', function(event) {
   var myReply='';
-  if (event.message.type = 'text') //{
+  if (event.message.type = 'text') {
     myReply=processText(event.message.text);
-  
+   }
+   if (event.message.type == 'sticker') {
+      myReply='你太幽默了！';
+   console.log('sticker');
+   }
+   if (event.message.type == 'image') {
+      myReply='這照片好帥！';
+   }
     
     event.reply(myReply).then(function(data) {
       // 傳送訊息成功時，可在此寫程式碼 
@@ -25,7 +32,7 @@ bot.on('message', function(event) {
       // 傳送訊息失敗時，可在此寫程式碼 
       console.log('錯誤產生，錯誤碼：'+error);
     });
-  //}
+  
 });
 
 function processText(myMsg){
@@ -83,7 +90,7 @@ function processText(myMsg){
          myResult='';
       }
       if (myResult=='')
-         myResult='抱歉，我不懂這句話的意思！bb';
+         myResult='抱歉，我不懂這句話的意思！cc';
    }
    
    return myResult;
