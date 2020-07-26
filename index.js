@@ -13,14 +13,16 @@ var relay;
 var myBoard;
 
 bot.on('message', function(event) {
+  var myReply='';
   if (event.message.type = 'text') {
-    var msg = event.message.text;
+    //var msg = event.message.text;
+    myReply=processText(event.message.text);
   //收到文字訊息時，直接把收到的訊息傳回去
-    replystr=msg.match('楊董')
-    if (replystr == '楊董') {replystr ='楊董是大帥哥'}
-    else {replystr = 'Jerry say =>>>>999 '+msg}
+    //replystr=msg.match('楊董')
+    //if (replystr == '楊董') {replystr ='楊董是大帥哥'}
+    //else {replystr = 'Jerry say =>>>>999 '+msg}
     
-    event.reply(replystr).then(function(data) {
+    event.reply(myReply).then(function(data) {
       // 傳送訊息成功時，可在此寫程式碼 
       console.log(msg);
     }).catch(function(error) {
@@ -76,7 +78,7 @@ function processText(myMsg){
    }
    */
    else{
-      myResult='';
+      myResult= 'Jerry say =>>>>aaa '+myMsg;
       try{
          myResult='答案是'+math.eval(myMsg.toLowerCase()).toString();
       }catch(err){
