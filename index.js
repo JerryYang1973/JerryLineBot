@@ -14,13 +14,9 @@ var myBoard;
 
 bot.on('message', function(event) {
   var myReply='';
-  if (event.message.type = 'text') {
-    //var msg = event.message.text;
+  if (event.message.type = 'text') //{
     myReply=processText(event.message.text);
-  //收到文字訊息時，直接把收到的訊息傳回去
-    //replystr=msg.match('楊董')
-    //if (replystr == '楊董') {replystr ='楊董是大帥哥'}
-    //else {replystr = 'Jerry say =>>>>999 '+msg}
+  
     
     event.reply(myReply).then(function(data) {
       // 傳送訊息成功時，可在此寫程式碼 
@@ -29,7 +25,7 @@ bot.on('message', function(event) {
       // 傳送訊息失敗時，可在此寫程式碼 
       console.log('錯誤產生，錯誤碼：'+error);
     });
-  }
+  //}
 });
 
 function processText(myMsg){
@@ -43,6 +39,8 @@ function processText(myMsg){
       myResult='5號腳位';
    else if (myMsg=='再見')
       myResult='這麼快就要離開我了！';
+   else if (myMsg.match('楊董')=='楊董')
+      myResult='楊董是大帥哥';      
    /*
    else if (myMsg=='led開' || myMsg=='LED開'){
       if (!deviceIsConnected())
@@ -78,14 +76,14 @@ function processText(myMsg){
    }
    */
    else{
-      myResult= 'Jerry say =>>>>aaa '+myMsg;
+      myResult='';
       try{
          myResult='答案是'+math.eval(myMsg.toLowerCase()).toString();
       }catch(err){
          myResult='';
       }
       if (myResult=='')
-         myResult='抱歉，我不懂這句話的意思！';
+         myResult='抱歉，我不懂這句話的意思！bb';
    }
    
    return myResult;
