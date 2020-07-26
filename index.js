@@ -7,7 +7,11 @@ var bot = linebot({
   channelAccessToken: 't87Sc+MRB8djH9XwZWUg4NYPvXwMgshaFTlJCR1Ml4skopfHY1DzYJhKckRS/4K0EdOYhm8olbpQy6aT3FoTt2GR7hcjitPrGpqWkTtLLo9bhUNjLtS7tKLwlS4CAnYsNr7VXO+pfF75VSVMhm+lUgdB04t89/1O/w1cDnyilFU='
 });
 
-//這一段的程式是專門處理當有人傳送文字訊息給LineBot時，我們的處理回應
+//以下的Webduino的device，請輸入自己webduino的DeviceID
+var myBoardVars={board: 'Smart', device: '這裡請輸入webduino的Device ID，前後引號不能去掉', transport: 'mqtt'};
+
+//注意：上面為連結Webduino Smart的連結語法，如果你的板子是webduino馬克一號或是Fly，請將上面的語法刪掉，並改成以下的連結語法。var myBoardVars={device: '這裡請輸入webduino的Device ID，前後引號不能去掉'};
+
 var rgbled;
 var relay;
 var myBoard;
@@ -92,10 +96,31 @@ function processText(myMsg){
          myResult='';
       }
       if (myResult=='')
-         myResult='抱歉，我不懂這句話的意思！dd';
+         myResult='抱歉，我不懂這句話的意思！20200727_1';
    }
    
    return myResult;
+}
+
+
+boardReady(myBoardVars, true, function (board) {
+   myBoard=board;
+   board.systemReset();
+   board.samplingInterval = 50;
+   rgbled = getRGBLedCathode(board, 15, 12, 13);
+   relay = getRelay(board, 5);
+   rgbled.setColor('#000000');
+   relay.off();
+});
+
+//以下為檢查webduino是否已連線成功的函式
+function deviceIsConnected(){
+   if (myBoard==undefined)
+      return false;
+   else if (myBoard.isConnected==undefined)
+      return false;
+   else
+      return myBoard.isConnected;
 }
 
 const app = express();
