@@ -14,7 +14,7 @@ bot.on('message', function(event) {
   //收到文字訊息時，直接把收到的訊息傳回去
     replystr=msg.match('楊董')
     if (replystr == '楊董') {replystr ='楊董是大帥哥'}
-    else {replystr = 'Jerry say =>>>>555 '+msg}
+    else {replystr = 'Jerry say =>>>>666 '+msg}
     
     event.reply(replystr).then(function(data) {
       // 傳送訊息成功時，可在此寫程式碼 
