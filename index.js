@@ -19,7 +19,10 @@ var myBoard;
 bot.on('message', function(event) {
    var myReply='';
    if (event.message.type == 'text') {
+      /*
       myReply=processText(event.message.text);
+      */
+     myReply='test11111'
    }
    if (event.message.type == 'sticker') {
       myReply='你太幽默了！';
