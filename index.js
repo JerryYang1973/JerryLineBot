@@ -17,6 +17,7 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
     myReply=processText(event.message.text);
    }
+   /*
    if (event.message.type == 'sticker') {
       myReply='你太幽默了！';
    console.log('sticker');
@@ -24,6 +25,7 @@ bot.on('message', function(event) {
    if (event.message.type == 'image') {
       myReply='這照片好帥！';
    }
+   */
     
     event.reply(myReply).then(function(data) {
       // 傳送訊息成功時，可在此寫程式碼 
