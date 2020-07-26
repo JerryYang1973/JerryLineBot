@@ -90,7 +90,7 @@ function processText(myMsg){
          myResult='';
       }
       if (myResult=='')
-         myResult='抱歉，我不懂這句話的意思！cc';
+         myResult='抱歉，我不懂這句話的意思！dd';
    }
    
    return myResult;
