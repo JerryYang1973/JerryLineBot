@@ -22,7 +22,7 @@ bot.on('message', function(event) {
       /*
       myReply=processText(event.message.text);
       */
-     myReply='test11111'
+     myReply='test11111';
    }
    if (event.message.type == 'sticker') {
       myReply='你太幽默了！';
