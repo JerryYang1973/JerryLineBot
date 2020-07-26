@@ -9,6 +9,7 @@ var bot = linebot({
 
 //以下的Webduino的device，請輸入自己webduino的DeviceID
 //var myBoardVars={board: 'Smart', device: '這裡請輸入webduino的Device ID，前後引號不能去掉', transport: 'mqtt'};
+var myBoardVars={device: '這裡請輸入webduino的Device ID，前後引號不能去掉'};
 
 //注意：上面為連結Webduino Smart的連結語法，如果你的板子是webduino馬克一號或是Fly，請將上面的語法刪掉，並改成以下的連結語法。var myBoardVars={device: '這裡請輸入webduino的Device ID，前後引號不能去掉'};
 
